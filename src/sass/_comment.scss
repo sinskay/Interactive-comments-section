@@ -1,0 +1,268 @@
+@use './variables' as *;
+
+
+
+.comment {
+    margin-bottom: 1.7rem;
+    max-width: 730px !important;
+    position: relative;
+    background-color: $white;
+    border-radius: 8px;
+    padding: 24px 31px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+
+    .vote {
+        min-width: 41px;
+        max-width: 41px;
+        height: 100px;
+        background-color: $veryLightGray;
+        border-radius: 10px;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+        color: $lightGrayishBlue;
+        
+        .votedN {
+            color: $moderateBlue;
+            font-weight: 500;
+            vertical-align: center;
+            margin: 0;
+        }
+        .upVote,
+        .downVote {
+            padding: 1px;
+            cursor: pointer;
+        }
+    }
+
+    .commentDetails {
+        flex-grow: 1;
+        .commentInfo {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            img {
+                margin-left: 24px;
+                align-self: flex-start;
+            }
+            .profileName {
+                color: $darkBlue;
+                margin-left: 17px;
+                margin-right: 17px;
+                font-weight: 500;
+            }
+            .ownerComment {
+                margin-right: 17px;
+                background-color: $moderateBlue;
+                color: $white;
+                padding: 4px 11px 4px;
+                font-weight: 500;
+                border-radius: 2px;
+
+                
+
+            }
+            .commentedA {
+                color: $grayishBlue;
+            }
+        }
+
+        .commentText {
+            margin-left: 24px;
+            margin-top: 21px;
+            color: $grayishBlue;
+
+            .replyingTo {
+                color: $moderateBlue;
+                font-weight: 600;
+                padding-right: 6px;
+            }
+        }
+
+    }
+    .commentReply {
+        background-color: transparent;
+        border: none;
+        display: flex;
+        align-items: center;
+        color: $moderateBlue;
+        font-weight: 500;
+        img {
+            width: 14px !important;
+            margin-right: 5px;
+        }
+
+        transition: opacity .3s ease-in-out;
+        &:hover {
+            opacity: 50%;
+        }
+    }
+    .commentManage {
+        position: absolute;
+        top: 24px;
+        right: 31px;
+        display: flex;
+        align-items: center;
+        
+        button {
+            background-color: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            transition: opacity .3s ease-in-out;
+            &:hover {
+                opacity: 50%;
+            }
+        }
+        img {
+            margin-right: 5px;
+        }
+        .commentDelete {
+            font-weight: 500;
+            color: $softRed;
+            margin-right: 15px;
+        }
+        .commentEdit {
+            font-weight: 500;
+            color: $moderateBlue;
+        }
+
+    }
+
+
+    transition: all .3s ease-in-out;
+    @media (max-width: 768px) {
+        & {
+            position: relative;
+            min-height: 280px;
+            padding: 16px !important;
+
+
+            .commentDetails {
+                .commentInfo {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    img {
+                        margin-left: 0;
+                        align-self: flex-start;
+                    }
+                }
+                .commentText {
+                    margin-left: 0;
+                    margin-top: 16px;
+                    color: $grayishBlue;
+                }
+            }
+            .vote {
+                position: absolute;
+                bottom: -16px;
+                transform: rotate(-90deg);
+                left: 48px; 
+
+                .downVote {
+                    transform: rotate(-90deg);
+                }
+
+                .votedN {
+                    transform: rotate(90deg);
+                }
+                
+
+            }
+            .commentManage {
+                bottom: 23px;
+                top: 0;
+                right: 16px;
+                align-items: flex-end;
+            }
+            .commentReply {
+                position: absolute;
+                bottom: 23px;
+                right: 16px;
+            }
+        }
+
+    }
+    @media (max-width: 350px) {
+        & {
+            .vote {
+                position: absolute;
+                bottom: -16px;
+                transform: rotate(-90deg);
+                left: 48px;
+            }
+            .commentManage {
+                bottom: 23px;
+                top: 0;
+                right: 16px;
+                align-items: flex-end;
+            }
+        }
+    }
+
+}
+
+
+
+#deleteModal {
+    max-width: 400px;
+    left: 50%;
+    transform: translateX(-50%);
+    h5 {
+        font-weight: 500;
+        font-size: 1.8rem;
+    }
+    p {
+        color: $grayishBlue;
+    }
+    .modal-header {
+        border-bottom: none;
+    }
+    .modal-footer {
+        border-top: none;
+        justify-content: center;
+        & > * {
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        #saveDelete {
+            background-color: $softRed;
+            border-color: $softRed;
+            margin-left: 14px;
+            &:hover {
+                opacity: 90%;
+            }
+        }
+    }                                                                                                            
+}
+
+
+
+
+//////////////////////////////////////////
+
+.commentReply{
+    padding-left: 88px;
+    transition: all .3s ease-in-out;
+    .comment {
+        max-width: 642px !important;
+    }
+
+    @media (max-width: 430px) {
+        & {
+            padding-left: 18px;
+        }
+    }
+}
+
+
+
+
